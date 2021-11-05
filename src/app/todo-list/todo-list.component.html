@@ -1,0 +1,54 @@
+<div class="main">
+    <h1>To Do List</h1>
+    <h2>What would you like to do today?</h2>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">Add new job</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Job</td>
+                    <td><input type="text" id="job" name="job" placeholder="Add new job here.." #job></td>
+                </tr>
+                <tr>
+                    <td>From</td>
+                    <td><input type="date" name="from" id="from" #from></td>
+                </tr>
+                <tr>
+                    <td>To</td>
+                    <td><input type="date" name="to" id="to" #to></td>
+                </tr>
+            </tbody>
+        </table>
+        <button (click)="addJob(job.value, from.value, to.value)">Add</button>
+        <!-- <button (click)="achive(Items)">Achived</button> -->
+    </div>
+  
+    <!-- <ul>
+        <li *ngFor="let item of Items">{{item.description}}
+          <span class="from">From: {{item.from_date}}</span>
+          <span class="to">To: {{item.to_date}}</span>
+        </li>
+    </ul> -->
+    <table class="work">
+        <thead>
+            <th>Job</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Done</th>
+        </thead>
+        <tbody *ngFor="let item of Items">
+            <tr>
+                <td>{{item.description}}</td>
+                <td>{{item.from_date}}</td>
+                <td>{{item.to_date}}</td>
+                <td>
+                    <input type="checkbox" [(ngModel)]="item.done" (change)="changeStt(item.done?true:false)">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
