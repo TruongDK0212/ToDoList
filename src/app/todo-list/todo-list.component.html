@@ -40,10 +40,18 @@
             <th>Done</th>
         </thead>
         <tbody *ngFor="let item of Items">
-            <tr>
+            <tr *ngIf="item.done === false">
                 <td>{{item.description}}</td>
                 <td>{{item.from_date}}</td>
                 <td>{{item.to_date}}</td>
+                <td>
+                    <input type="checkbox" [(ngModel)]="item.done" (change)="changeStt(item.done?true:false)">
+                </td>
+            </tr>
+            <tr *ngIf="item.done === true">
+                <td><del>{{item.description}}</del></td>
+                <td><del>{{item.from_date}}</del></td>
+                <td><del>{{item.to_date}}</del></td>
                 <td>
                     <input type="checkbox" [(ngModel)]="item.done" (change)="changeStt(item.done?true:false)">
                 </td>
