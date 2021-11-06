@@ -1,30 +1,29 @@
 <div class="main">
     <h1>To Do List</h1>
-    <h2>What would you like to do today?</h2>
     <div>
         <table>
             <thead>
                 <tr>
-                    <th colspan="2">Add new job</th>
+                    <th colspan="2">Add New Task</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Job</td>
-                    <td><input type="text" id="job" name="job" placeholder="Add new job here.." #job></td>
+                    <td><input type="text" id="job" name="job" placeholder="Task's Name.." #job required></td>
                 </tr>
                 <tr>
                     <td>From</td>
-                    <td><input type="date" name="from" id="from" #from></td>
+                    <td><input type="date" name="from" id="from" #from required></td>
                 </tr>
                 <tr>
                     <td>To</td>
-                    <td><input type="date" name="to" id="to" #to></td>
+                    <td><input type="date" name="to" id="to" #to required></td>
                 </tr>
             </tbody>
         </table>
         <button (click)="addJob(job.value, from.value, to.value)">Add</button>
-        <!-- <button (click)="achive(Items)">Achived</button> -->
+        <button (click)="achive(Items)">Achived</button>
     </div>
   
     <!-- <ul>

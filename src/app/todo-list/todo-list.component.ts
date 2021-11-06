@@ -25,38 +25,27 @@ export class TodoListComponent implements OnInit, OnDestroy {
       description: job, done: false, from_date: from, to_date: to
     }
     this.Items.unshift(newJob);
-    console.log(newJob);
-    // this.Items = [newJob];
+    // this.Items = [newJob]; đề phòng trường hợp xóa hết dữ liệu ở local
     var alljob = JSON.stringify(this.Items);
     localStorage.setItem("AllJob", alljob);
+    // job = '';
   }
 
-  marked = false;
   changeStt(e:any) {
-    console.log(this.Items);
     var alljob = JSON.stringify(this.Items);
     localStorage.setItem("AllJob", alljob);
     
   }
-  // achive(e:any) {
-  //   // this.oldToDo = this.Items;
-  //   // this.Items = '';
-  //   // this.oldToDo.array.forEach((item: { done: any; }) => {
-  //   //   if (!item.done) this.Items.unshift(item);
-  //   // });
-  //   console.log(typeof e);
-  //   console.log(e);
-  //   e.forEach((index: any) => {
-  //     console.log(index);
-  //     // if (!index.done) this.Items.unshift(index);
-  //   });
-  //   // this.Items.forEach((e: any) => {
-  //   //   if (!e.done) this.Items.unshift(e);
-  //   // });
-  //   // console.log(this.Items);
-  // }
-  // angular.forEach(oldTodos, function(todo) {
-  //   if (!todo.done) todoList.todos.push(todo);
-  // });
+  achive(e:any) {
+    e.forEach((index: any, number: any) => {
+      // console.log(index);
+      // console.log(number);
+      // this.Items.splice(number, 1);
+      if (index.done) {
+        this.Items.splice(number, 1);
+      }
+    });
+    console.log(this.Items);
+  }
 
 }
